@@ -1,4 +1,5 @@
 import { Container, VStack, Heading, Text, Button, Box, HStack, Input } from "@chakra-ui/react";
+import ProgressChart from "../components/ProgressChart";
 import { useState } from "react";
 import { FaRunning, FaDumbbell, FaBiking } from "react-icons/fa";
 
@@ -49,6 +50,7 @@ const Index = () => {
             </HStack>
           ))}
         </Box>
+        <ProgressChart data={activities} />
       </VStack>
     </Container>
   );
