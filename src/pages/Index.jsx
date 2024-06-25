@@ -5,13 +5,15 @@ import { FaRunning, FaDumbbell, FaBiking } from "react-icons/fa";
 const Index = () => {
   const [activity, setActivity] = useState("");
   const [duration, setDuration] = useState("");
+  const [date, setDate] = useState("");
   const [activities, setActivities] = useState([]);
 
   const handleAddActivity = () => {
-    if (activity && duration) {
-      setActivities([...activities, { activity, duration }]);
+    if (activity && duration && date) {
+      setActivities([...activities, { activity, duration, date }]);
       setActivity("");
       setDuration("");
+      setDate("");
     }
   };
 
@@ -31,6 +33,11 @@ const Index = () => {
             value={duration} 
             onChange={(e) => setDuration(e.target.value)} 
           />
+          <Input 
+            placeholder="Date (e.g., 2023-10-01)" 
+            value={date} 
+            onChange={(e) => setDate(e.target.value)} 
+          />
           <Button colorScheme="teal" onClick={handleAddActivity}>Add</Button>
         </HStack>
         <Box width="100%" mt={4}>
@@ -38,6 +45,7 @@ const Index = () => {
             <HStack key={index} justifyContent="space-between" p={2} borderWidth="1px" borderRadius="md">
               <Text>{act.activity}</Text>
               <Text>{act.duration}</Text>
+              <Text>{act.date}</Text>
             </HStack>
           ))}
         </Box>
